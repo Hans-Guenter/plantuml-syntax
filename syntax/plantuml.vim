@@ -91,8 +91,10 @@ syntax region plantumlText oneline start=/\[/ms=s+1 end=/\]/me=s-1 contained
 syntax match plantumlArrowDirectedLine /\([-.]\)\%(l\%[eft]\|r\%[ight]\|up\?\|d\%[own]\)\1/ contained
 
 " Note and legend
-syntax region plantumlNoteMultiLine start=/\%(^\s*[rh]\?\%(note\|legend\)\)\@<=\s\%([^:"]\+$\)\@=/ end=/^\%(\s*\zeend\s*[rh]\?\%(note\|legend\)$\)\|endlegend\@=/ contains=plantumlSpecialString,plantumlNoteMultiLineStart,plantumlTag
+syntax region plantumlNoteMultiLine start=/\%(^\s*[rh]\?\%(note\|legend\)\)\@<=\s\%([^{:"]\+$\)\@=/ end=/^\%(\s*\zeend\s*[rh]\?\%(note\|legend\)$\)\|endlegend\@=/ contains=plantumlSpecialString,plantumlNoteMultiLineStart,plantumlTag
 syntax match plantumlNoteMultiLineStart /\%(^\s*[rh]\?\%(note\|legend\)\)\@<=\s\%([^:]\+$\)/ contained contains=plantumlKeyword,plantumlColor,plantumlString,plantumlTag
+
+syntax region plantumlNoteRegion start=/\%(\%(note\|legend\)\s[^{]\+\)\@<=\zs{/ end=/^\s*}/ contains=plantumlKeyword,plantumlColor,plantumlString,plantumlTag
 
 " Class
 syntax region plantumlClass
@@ -403,6 +405,7 @@ highlight default link plantumlActivitySynch Type
 highlight default link plantumlActivityLabel String
 highlight default link plantumlSkinparamKeyword Identifier
 highlight default link plantumlNoteMultiLine String
+highlight default link plantumlNoteRegion String
 highlight default link plantumlUsecaseActor String
 highlight default link plantumlStereotype Type
 
