@@ -18,7 +18,7 @@ let b:current_syntax = 'plantuml'
 
 syntax sync minlines=100
 
-syntax match plantumlPreProc /\%(\%(^@start\|^@end\)\%(dot\|mindmap\|uml\|salt\|wbs\|gantt\)\)\|!\%(define\|definelong\|else\|enddefinelong\|endif\|exit\|if\|ifdef\|ifndef\|include\|pragma\|undef\|gantt\)\s*.*/ contains=plantumlDir
+syntax match plantumlPreProc /\%(\%(^@start\|^@end\)\%(dot\|json\|mindmap\|uml\|salt\|wbs\|gantt\)\)\|!\%(define\|definelong\|else\|enddefinelong\|endif\|exit\|if\|ifdef\|ifndef\|include\|pragma\|undef\|gantt\)\s*.*/ contains=plantumlDir
 syntax region plantumlDir start=/\s\+/ms=s+1 end=/$/ contained
 
 " type
